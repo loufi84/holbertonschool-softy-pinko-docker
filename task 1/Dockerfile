@@ -1,9 +1,10 @@
 FROM ubuntu:latest
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y  python3
-RUN apt-get install -y python3-pip
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y  python3 && apt-get install -y python3-pip
 RUN rm /usr/lib/python*/EXTERNALLY-MANAGED
 RUN pip3 install flask
+
 WORKDIR /app
 COPY api.py /app/
+
 RUN ["python3", "api.py"]

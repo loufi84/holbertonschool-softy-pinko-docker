@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y  python3 && apt-get install -y python3-pip
+RUN apt-get update && apt-get upgrade -y && apt-get install -y python3 python3-pip
 RUN rm /usr/lib/python*/EXTERNALLY-MANAGED || true
 RUN pip3 install flask
 RUN pip3 install flask-cors
@@ -8,4 +8,4 @@ RUN pip3 install flask-cors
 WORKDIR /app
 COPY api.py /app/
 
-RUN ["python3", "api.py"]
+CMD [ "python3", "api.py" ]
